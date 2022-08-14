@@ -1,3 +1,4 @@
+/* eslint-disable */
 import './index.css';
 
 import { config as dotEnvConfig } from 'dotenv';

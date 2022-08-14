@@ -1,3 +1,4 @@
+/* eslint-disable */
 import './Profile.css';
 
 import jwtDecode from 'jwt-decode';

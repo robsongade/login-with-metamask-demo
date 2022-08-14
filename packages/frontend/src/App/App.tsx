@@ -1,4 +1,5 @@
-import './App.css';
+/* eslint-disable */
+import './App.css'; // eslint-disable-line
 
 import React, { useEffect, useState } from 'react';
 
@@ -11,16 +12,18 @@ const LS_KEY = 'login-with-metamask:auth';
 
 interface State {
 	auth?: Auth;
+	user?: string
 }
 
 export const App = (): JSX.Element => {
 	const [state, setState] = useState<State>({});
 
 	useEffect(() => {
-		// Access token is stored in localstorage
 		const ls = window.localStorage.getItem(LS_KEY);
 		const auth = ls && JSON.parse(ls);
-		setState({ auth });
+		const ls_user = window.localStorage.getItem(`${LS_KEY}:user`);
+		const user = ls_user && JSON.parse(ls_user);
+		setState({ auth ,user });
 	}, []);
 
 	const handleLoggedIn = (auth: Auth) => {
